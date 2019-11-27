@@ -1,0 +1,19 @@
+{
+  "name": "next-scratch",
+  "version": "1.0.0",
+  "description": "Scratch project for learning Next.js",
+  "main": "index.js",
+  "author": "Brian Zhang <brianbzhang@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^9.1.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}

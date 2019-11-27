@@ -1,0 +1,31 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi next/dist/pages/_app": 0,
+      "multi next/dist/pages/_error": 1,
+      "multi next/dist/pages/_document": 2
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2
+    }
+  },
+  "chunks": {
+    "byName": {
+      "init-server.js": 0,
+      "on-error-server.js": 1,
+      "static/4mJc33PTq2xU2QU6Y7H2h/pages/_app.js": 2,
+      "static/4mJc33PTq2xU2QU6Y7H2h/pages/_document.js": 3,
+      "static/4mJc33PTq2xU2QU6Y7H2h/pages/_error.js": 4
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}
