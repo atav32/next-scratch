@@ -8,12 +8,19 @@ Vanilla configuration for Next.js v9.1.4 (no next.config.js)
 
 ### :open_file_folder: No pages
 
+Empty ./pages dir
+
 ![no page build output comparison](./build_record/screenshots/no_pages.png)
 
 ### :page_facing_up: 1 page (index.js)
 
+- ./pages/index.js
+
 ![index page build output comparison](./build_record/screenshots/index_page.png)
 
 ### :bookmark_tabs: 2 page (index.js, about.js)
+
+- ./pages/index.js
+- ./pages/about.js
 
 ![2 pages build output comparison](./build_record/screenshots/two_pages.png)
