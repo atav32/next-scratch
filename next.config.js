@@ -12,7 +12,6 @@ const config = {
 module.exports = withPlugins([
   withSourceMaps(),
   [withTM, {
-    // transpileModules: ['@tensorflow/tfjs', 'react-intl'],
-    transpileModules: [],
+    transpileModules: ['@tensorflow/tfjs', 'react-intl'],
   }],
 ], config);
