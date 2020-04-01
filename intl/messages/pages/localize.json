@@ -1,0 +1,1 @@
+[{"id":"localize.first","description":"First test message","defaultMessage":"First","file":"pages/localize.js","start":{"line":11,"column":9},"end":{"line":15,"column":3}},{"id":"localize.second","description":"Second test message","defaultMessage":"Second","file":"pages/localize.js","start":{"line":16,"column":10},"end":{"line":20,"column":3}}]
