@@ -1,6 +1,6 @@
 import {defineMessages, FormattedMessage} from 'react-intl';
 
-import '../styles/TextBox.css';
+import style from './TextBox.scss';
 
 const messages = defineMessages({
   title: {
@@ -11,11 +11,11 @@ const messages = defineMessages({
 });
 
 const TextBox = ({text}) => (
-  <div className="TextBox">
-    <div className="TextBox__title">
+  <div className={style.TextBox}>
+    <div className={style.title}>
       <FormattedMessage {...messages.title} />
     </div>
-    <div className="TextBox__text">{text}</div>
+    <div className={style.text}>{text}</div>
   </div>
 );
 

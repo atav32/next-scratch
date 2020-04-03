@@ -1,0 +1,12 @@
+.TextBox {
+  border: 1px solid #ccc;
+  padding: 0.18em;
+
+  @media (max-width: 480px) {
+    color: #bb0000;
+  }
+
+  .title {
+    font-size: 1.18em;
+  }
+}
