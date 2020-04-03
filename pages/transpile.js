@@ -1,5 +1,4 @@
 import * as tf from '@tensorflow/tfjs';
-import {injectIntl} from 'react-intl';
 
 const usePromise = ({ element }, timeout = 0) => {
   return new Promise((resolve, reject) => {
@@ -18,14 +17,14 @@ const getAsyncResponse = async () => {
   return response;
 };
 
-export default function About() {
+export default function Transpile() {
   const arr = [1, 2, 3, 4, 5];
   console.log('Array.prototype.includes', arr.includes(3));
   getAsyncResponse().then(response => console.log('async response', response));
 
   return (
     <div>
-      <p>This is the about page</p>
+      <p>This is the transpile page</p>
     </div>
   );
 }
