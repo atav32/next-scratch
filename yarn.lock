@@ -1642,7 +1642,14 @@
   dependencies:
     "@formatjs/intl-utils" "^2.2.1"
 
-"@formatjs/intl-relativetimeformat@^4.5.10":
+"@formatjs/intl-pluralrules@^1.5.4":
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-pluralrules/-/intl-pluralrules-1.5.4.tgz#fbcc724c80edd23c451ec03427cea5db210621cb"
+  integrity sha512-/MXOzWV8RJwzORKOgl9YdUt2riHq+CgsNJkACSNdzIQbzxaXG+LZuo4WS5FuhFx93S+elS6SVvNzLEFQttSEpw==
+  dependencies:
+    "@formatjs/intl-utils" "^2.2.1"
+
+"@formatjs/intl-relativetimeformat@^4.5.10", "@formatjs/intl-relativetimeformat@^4.5.11":
   version "4.5.11"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-4.5.11.tgz#8161aba04b3dd488a00e2642e007bf5359f8ad34"
   integrity sha512-UdZtBISVHMB1n9dOldnNpEr90/qdHcOXe+EPBAy6pXsqKwL1Nh86PU5/2wJij1wl7lQDrCb2npcYnmScv4uGRg==
@@ -4409,6 +4416,11 @@ intl-format-cache@^4.2.22:
   resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-4.2.23.tgz#2c508f64b3bb5862abc71392a4b1696e2b8572d2"
   integrity sha512-a1chSSjN323lnm3f4VWR/+6uyaXgTLII8PkiDeKkC3A+eauUswf/k09iBwDQGlkLg29mZ+zShWdm+YdH+sLY4w==
 
+intl-locales-supported@^1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/intl-locales-supported/-/intl-locales-supported-1.8.4.tgz#e1d19812afa50dc2e2a2b4741ceb4030522d45b1"
+  integrity sha512-wO0JhDqhshhkq8Pa9CLcstqd1aCXjfMgfMzjD6mDreS3mTSDbjGiMU+07O8BdJGxed7Q0Wf3TFVjGq0W3Y0n1w==
+
 intl-messageformat-parser@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-4.1.1.tgz#33a3ac1854a8b9adc18dfc73db018abf91be4c32"
@@ -4423,6 +4435,11 @@ intl-messageformat@^8.3.2:
   dependencies:
     intl-format-cache "^4.2.22"
     intl-messageformat-parser "^4.1.1"
+
+intl@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
+  integrity sha1-giRKIZDE5Bn4Nx9ao02qNCDiq94=
 
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
@@ -6773,6 +6790,11 @@ react-is@^16.8.1:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
+
+react-promise@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-promise/-/react-promise-3.0.2.tgz#1180f9e9d2e1a5362d005688c002366b4e9f2b67"
+  integrity sha512-Ez2aFel11b08H2HAWNnKf0GDV5ATGBmxK9UXHXxoKwCEoQey9manXDTwB2n3mhgOvMRzGH/YTHACdqQUjXf6Rw==
 
 react@^16.12.0:
   version "16.12.0"
