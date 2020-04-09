@@ -3,7 +3,7 @@ import {defineMessages, FormattedMessage, IntlProvider} from 'react-intl';
 import areIntlLocalesSupported from 'intl-locales-supported';
 // import usePromise from 'react-promise';
 import TextBox from '../components/TextBox';
-import enMessages from '../intl/dist/en-US';
+import englishMessages from '../intl/dist/en-US';
 // import esMessages from '../intl/dist/es-ES';
 // import zhMessages from '../intl/dist/zh-CN';
 
@@ -21,13 +21,13 @@ const messages = defineMessages({
 });
 
 // const locale = 'en-US';
-// const locale = 'es-ES';
-const locale = 'zh-CN';
+const locale = 'es-ES';
+// const locale = 'zh-CN';
 
 // const locale =
 //   (typeof window !== 'undefined' &&
 //     window.navigator &&
-//     window.navigator.locale) ||
+//     (window.navigator.userLanguage || window.navigator.language)) ||
 //   'en-US';
 
 
@@ -53,9 +53,9 @@ if (global.Intl) {
 }
 */
 
-// const languageCode = locale.split('-')[0];
+  // const languageCode = locale.split('-')[0];
 
-/*
+  /*
 if (!Intl.PluralRules) {
   require('@formatjs/intl-pluralrules/polyfill');
   require(`@formatjs/intl-pluralrules/dist/locale-data/${languageCode}`);
@@ -68,19 +68,22 @@ if (!Intl.RelativeTimeFormat) {
 */
 
 const Localize = () => {
+  const [appMessages, setMessages] = useState(englishMessages);
 
-  const [appMessages, setMessages] = useState(enMessages);
+  useEffect(() => {
+    async function importLocaleJsons(locale) {
+      try {
+        const localeMessages = await import(
+          `../intl/dist/${locale}.json`
+        );
+        setMessages(localeMessages.default);
+      } catch(error) {
+        console.warn('Unsupported locale');
+      }
+    }
 
-	useEffect(() => {
-		async function importLocaleJsons(locale) {
-      const localeMessages = await import(
-        `../intl/dist/${locale}.json`
-      );
-      setMessages(localeMessages.default);
-		}
-
-		importLocaleJsons(locale);
-	}, [locale]);
+    importLocaleJsons(locale);
+  }, [locale]);
 
   return (
     <IntlProvider defaultLocale="en-US" locale={locale} messages={appMessages}>
