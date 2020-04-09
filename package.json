@@ -19,18 +19,23 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.8.7",
     "@babel/runtime-corejs3": "^7.9.2",
+    "@formatjs/intl-pluralrules": "^1.5.4",
+    "@formatjs/intl-relativetimeformat": "^4.5.11",
     "@tensorflow/tfjs": "^1.7.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "@zeit/next-source-maps": "0.0.4-canary.1",
     "babel-plugin-react-intl": "^7.1.0",
     "core-js": "^3.6.4",
+    "intl": "^1.2.5",
+    "intl-locales-supported": "^1.8.4",
     "next": "^9.3.3",
     "next-compose-plugins": "^2.2.0",
     "next-transpile-modules": "^3.1.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-intl": "^4.3.1"
+    "react-intl": "^4.3.1",
+    "react-promise": "^3.0.2"
   }
 }
