@@ -1,1 +1,2 @@
-yarn.lock -diff linguist-generated
+yarn.lock     -diff linguist-generated
+build_record/ -diff linguist-generated

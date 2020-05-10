@@ -22,13 +22,15 @@ const messages = defineMessages({
 
 const Localize = () => (
   <IntlProvider defaultLocale="en-US" locale={locale}>
-    <div>
-      <FormattedMessage {...messages.first} />
+    <div className="ContentContainer">
+      <p>
+        <FormattedMessage {...messages.first} />
+      </p>
+      <p>
+        <FormattedMessage {...messages.second} />
+      </p>
+      <TextBox text="test" />
     </div>
-    <div>
-      <FormattedMessage {...messages.second} />
-    </div>
-    <TextBox text="test" />
   </IntlProvider>
 );
 

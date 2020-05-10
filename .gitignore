@@ -19,9 +19,12 @@ node_modules/
 .env
 
 # Next.js build output
-.next
+.next/
 cache/
 out/
 
 # react-intl
 intl/messages/
+
+# testing
+*/__image_snapshots__/__diff_output__/
