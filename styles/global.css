@@ -1,3 +1,21 @@
+body {
+  margin: 0;
+  background-color: #f6f9fc;
+  color: #32325d;
+}
+
+nav {
+  padding: calc(1vh + 0.0px) 0;
+  width: 100vw;
+  box-shadow: 0 0.5vh 0.5vh rgba(0, 0, 0, 0.3);
+}
+
 nav a {
   margin-right: 1ch;
+}
+
+.ContentContainer {
+  margin: auto;
+  max-width: 62vw;
+  min-width: 480px;
 }

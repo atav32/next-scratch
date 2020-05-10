@@ -23,7 +23,7 @@ export default function Transpile() {
   getAsyncResponse().then(response => console.log('async response', response));
 
   return (
-    <div>
+    <div className="ContentContainer">
       <p>This is the transpile page</p>
     </div>
   );
