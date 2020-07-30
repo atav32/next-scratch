@@ -10,11 +10,14 @@ const App = () => (
     </Head>
     <nav>
       <div className="ContentContainer">
+        <Link href="/localize">
+          <a>Localize Page</a>
+        </Link>
         <Link href="/transpile">
           <a>Transpile Page</a>
         </Link>
-        <Link href="/localize">
-          <a>Localize Page</a>
+        <Link href="/webcam">
+          <a>Webcam Page</a>
         </Link>
       </div>
     </nav>

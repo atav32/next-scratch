@@ -1,3 +1,4 @@
+import React from 'react';
 import {defineMessages, FormattedMessage, IntlProvider} from 'react-intl';
 import TextBox from '../components/TextBox';
 
