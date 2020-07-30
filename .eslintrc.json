@@ -1,0 +1,31 @@
+{
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "extends": [
+    "plugin:compat/recommended",
+    "plugin:json/recommended",
+    "plugin:jest/recommended",
+    "plugin:postcss-modules/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "eslint-comments",
+    "react",
+    "react-hooks",
+    "formatjs",
+    "jest",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    },
+    "sourceType": "module"
+  }
+}
