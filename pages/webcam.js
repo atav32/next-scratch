@@ -51,54 +51,41 @@ export default function Webcam() {
 
   useEffect(() => {
     const loadAvailableDevices = async () => {
+      try {
       const devices = await navigator.mediaDevices.enumerateDevices();
       setVideoDevices(devices.filter(device => device.kind === 'videoinput'));
 
       const newDeviceOptions = getAvailableDeviceOptions(devices);
       setDeviceOptions(newDeviceOptions);
+      } catch (err) {
+        setError(err);
+        console.error(err);
+      }
     };
+
     loadAvailableDevices();
   }, []);
 
   useEffect(() => {
     const newVideoConstraints = fixMultiCameraConstraints(videoConstraints, videoDevices);
     setVideoConstraints(newVideoConstraints);
+
+    const newDeviceOptions = getAvailableDeviceOptions(videoDevices);
+    setDeviceOptions(newDeviceOptions);
   }, [videoDevices]);
 
   useEffect(() => {
     setReady(true);
+
+    const loadUserMedia = async () => {
+      try {
+        const mediaStream = navigator.mediaDevices.getUserMedia({video: videoConstraints});
+      } catch (err) {
+        setError(err);
+        console.error(err);
+      }
+    };
   }, [videoConstraints]);
-
-  /*
-  const updateActiveDevice = async (newVideoConstraints, newDeviceOptions) => {
-    try {
-      const mediaStream = await navigator.mediaDevices.getUserMedia({video: videoConstraints});
-      const activeTrack = await getActiveTrack(mediaStream);
-      const activeTrackDevice = newDeviceOptions.filter(device => device.label === activeTrack.label)[0];
-      console.log('%c active device', 'color: #b0b', newVideoConstraints, activeTrackDevice);
-      setActiveDevice(activeTrackDevice);
-    } catch (err) {
-      setError(err);
-      console.error(err);
-    }
-  };
- */
-
-  /*
-  const loadMediaDevices = async () => {
-    console.log('%c loadMediaDevices', 'color: #b0b');
-    try {
-      const newDeviceOptions = getAvailableDeviceOptions(devices);
-      setDeviceOptions(newDeviceOptions);
-      setVideoDevices(devices);
-      setVideoConstraints(newVideoConstraints);
-      await updateActiveDevice(newVideoConstraints, newDeviceOptions);
-    } catch (err) {
-      setError(err);
-      console.error(err);
-    }
-  };
-  */
 
   const handleChangeActiveDevice = async (device) => {
     console.log('%c setActiveDevice', 'color: #b0b', device);
@@ -107,12 +94,9 @@ export default function Webcam() {
       deviceId: device.value,
     };
     setVideoConstraints(newVideoConstraints);
-    // setActiveDevice(device);
-    // const activeTrack = await getActiveTrack(newVideoConstraints);
   };
 
   const handleUserMedia = async (mediaStream) => {
-    // console.log('%c handleUserMedia', 'color: #b0b', mediaStream);
     const activeTrack = await getActiveTrack(mediaStream);
     const activeTrackDevice = deviceOptions.filter(device => device.label === activeTrack.label)[0];
     setActiveDevice(activeTrackDevice);
@@ -120,7 +104,7 @@ export default function Webcam() {
     console.log('%c active device', 'color: #b0b', activeTrackDevice);
   };
 
-  console.log('%c video contraints', 'color: #b0b', videoConstraints);
+  // console.log('%c video contraints', 'color: #b0b', videoConstraints);
 
   return (
     <div className="ContentContainer">
