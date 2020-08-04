@@ -5,8 +5,8 @@ import * as ReactWebcam from 'react-webcam';
 import './webcam.css';
 
 const IDEAL_VIDEO_CONSTRAINTS = {
-  width: 2880,
-  height: 1620,
+  width: 99999,
+  height: 99999,
   facingMode: 'environment',
 };
 
@@ -31,6 +31,7 @@ const getAvailableDeviceOptions = (devices) => {
     label: device.label,
     value: device.deviceId,
   }));
+  console.log('%c device options', 'color: #b0b', deviceOptions);
   return deviceOptions;
 };
 
@@ -49,14 +50,22 @@ export default function Webcam() {
   const [videoConstraints, setVideoConstraints] = useState(IDEAL_VIDEO_CONSTRAINTS);
   const [ready, setReady] = useState(false);
 
+  const updateDevices = async () => {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    console.log('%c load available devices', 'color: #b0b', devices);
+    setVideoDevices(devices.filter(device => device.kind === 'videoinput'));
+
+    const newDeviceOptions = getAvailableDeviceOptions(devices);
+    setDeviceOptions(newDeviceOptions);
+    return [devices, newDeviceOptions];
+  };
+
   useEffect(() => {
     const loadAvailableDevices = async () => {
       try {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      setVideoDevices(devices.filter(device => device.kind === 'videoinput'));
-
-      const newDeviceOptions = getAvailableDeviceOptions(devices);
-      setDeviceOptions(newDeviceOptions);
+        const mediaStream = await navigator.mediaDevices.getUserMedia({video: videoConstraints});
+        console.log('%c mediaStream', 'color: #b0b', mediaStream);
+        updateDevices();
       } catch (err) {
         setError(err);
         console.error(err);
@@ -67,44 +76,49 @@ export default function Webcam() {
   }, []);
 
   useEffect(() => {
-    const newVideoConstraints = fixMultiCameraConstraints(videoConstraints, videoDevices);
-    setVideoConstraints(newVideoConstraints);
+    if (!ready) {
+      const newVideoConstraints = fixMultiCameraConstraints(videoConstraints, videoDevices);
+      setVideoConstraints(newVideoConstraints);
+    }
 
     const newDeviceOptions = getAvailableDeviceOptions(videoDevices);
     setDeviceOptions(newDeviceOptions);
   }, [videoDevices]);
 
   useEffect(() => {
-    setReady(true);
-
     const loadUserMedia = async () => {
       try {
-        const mediaStream = navigator.mediaDevices.getUserMedia({video: videoConstraints});
+        const mediaStream = await navigator.mediaDevices.getUserMedia({video: videoConstraints});
+        setReady(true);
       } catch (err) {
         setError(err);
         console.error(err);
       }
     };
+    loadUserMedia();
   }, [videoConstraints]);
 
   const handleChangeActiveDevice = async (device) => {
     console.log('%c setActiveDevice', 'color: #b0b', device);
     const newVideoConstraints = {
-      ...videoConstraints,
+      width: videoConstraints.width,
+      height: videoConstraints.height,
       deviceId: device.value,
     };
     setVideoConstraints(newVideoConstraints);
   };
 
-  const handleUserMedia = async (mediaStream) => {
+  const handleOnUserMedia = async (mediaStream) => {
     const activeTrack = await getActiveTrack(mediaStream);
-    const activeTrackDevice = deviceOptions.filter(device => device.label === activeTrack.label)[0];
+    const [devices, newDeviceOptions] = await updateDevices();
+    const activeTrackDevice = newDeviceOptions.filter(device => device.label === activeTrack.label)[0];
     setActiveDevice(activeTrackDevice);
     console.log('%c active track', 'color: #b0b', activeTrack);
     console.log('%c active device', 'color: #b0b', activeTrackDevice);
   };
 
-  // console.log('%c video contraints', 'color: #b0b', videoConstraints);
+  console.log('%c ready', 'color: #b0b', ready);
+  console.log('%c video contraints', 'color: #b0b', videoConstraints);
 
   return (
     <div className="ContentContainer">
@@ -118,7 +132,7 @@ export default function Webcam() {
         <ReactWebcam
           className="react-webcam"
           audio={false}
-          onUserMedia={handleUserMedia}
+          onUserMedia={handleOnUserMedia}
           videoConstraints={videoConstraints}
         />
       }
