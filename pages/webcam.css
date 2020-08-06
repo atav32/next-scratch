@@ -1,3 +1,13 @@
+.video-constraint-container {
+  display: flex;
+  margin: 1em 0;
+}
+
+.video-constraint-label {
+  display: flex;
+  margin-right: 1em;
+}
+
 .react-webcam {
   margin-top: 1em;
   width: 100%;
