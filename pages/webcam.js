@@ -35,7 +35,7 @@ const getAvailableDeviceOptions = (devices) => {
   return deviceOptions;
 };
 
-const getActiveTrack = async (mediaStream) => {
+const getActiveTrack = (mediaStream) => {
   const videoTracks = mediaStream.getVideoTracks();
   const activeTrack = videoTracks.filter(track => track.readyState === 'live')[0];
   console.log('%c videoTracks', 'color: #b0b', videoTracks, activeTrack);
@@ -135,7 +135,7 @@ export default function Webcam() {
 
   const handleOnUserMedia = async (mediaStream) => {
     logStreamTracks(mediaStream);
-    const activeTrack = await getActiveTrack(mediaStream);
+    const activeTrack = getActiveTrack(mediaStream);
     const [devices, newDeviceOptions] = await updateDevices();
     const activeTrackDevice = newDeviceOptions.filter(device => device.value === activeTrack.getCapabilities().deviceId)[0];
     setActiveDevice(activeTrackDevice);
