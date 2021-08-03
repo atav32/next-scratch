@@ -1,22 +1,22 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import {Helmet} from 'react-helmet';
+import Link from 'react-router-dom';
 
 import '../styles/global.css';
 
 const App = () => (
   <div>
-    <Head>
+    <Helmet>
       <script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise%2CURL%2CUint8Array%2CObject.assign"></script>
-    </Head>
+    </Helmet>
     <nav>
       <div className="ContentContainer">
-        <Link href="/localize">
+        <Link to="/localize">
           <a>Localize Page</a>
         </Link>
-        <Link href="/transpile">
+        <Link to="/transpile">
           <a>Transpile Page</a>
         </Link>
-        <Link href="/webcam">
+        <Link to="/webcam">
           <a>Webcam Page</a>
         </Link>
       </div>
