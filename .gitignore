@@ -23,6 +23,9 @@ node_modules/
 cache/
 out/
 
+# Webpack output
+dist/
+
 # react-intl
 intl/messages/
 
