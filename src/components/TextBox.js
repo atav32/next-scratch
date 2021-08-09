@@ -1,6 +1,6 @@
 import {defineMessages, FormattedMessage} from 'react-intl';
 
-import style from './TextBox.scss';
+import style from './TextBox.css';
 
 const messages = defineMessages({
   title: {
