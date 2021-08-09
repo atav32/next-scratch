@@ -1,7 +1,7 @@
 import {Helmet} from 'react-helmet';
-import Link from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 
-import '../styles/global.css';
+import '../global.css';
 
 const App = () => (
   <div>
@@ -22,9 +22,13 @@ const App = () => (
       </div>
     </nav>
     <main>
-      <div className="ContentContainer">
-        <p>Hello Next.js</p>
-      </div>
+      <Switch>
+        <Route path="/">
+          <div className="ContentContainer">
+            <p>Hello Next.js</p>
+          </div>
+        </Route>
+      </Switch>
     </main>
   </div>
 );
