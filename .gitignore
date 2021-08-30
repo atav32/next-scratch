@@ -23,6 +23,9 @@ node_modules/
 cache/
 out/
 
+build/
+dist/
+
 # react-intl
 intl/messages/
 
