@@ -20,8 +20,12 @@ node_modules/
 
 # Next.js build output
 .next/
+build/
 cache/
 out/
+
+# Webpack output
+dist/
 
 # react-intl
 intl/messages/
